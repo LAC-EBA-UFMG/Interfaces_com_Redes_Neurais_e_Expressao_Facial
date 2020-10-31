@@ -1,6 +1,6 @@
 # Detectores Neurais de Expressão Facial
 
-<img src="images/DNeuralPiscadas.jpg" />
+<video src="videos/DNeuralPiscadas.mp4" width="448" height="338" controls preload></video>
 
 Esse projeto visa implementar interfaces humano-máquina, cujos valores de entrada
 são gerados por expressões faciais. Essas expressões são interpretadas por visão computacional, através de redes neurais.
@@ -12,7 +12,7 @@ Os exemplos deste projeto foram escritos e testados em Python 3.7.8 com a biblio
 
 ## Abertura dos Olhos
 
-
+<img src="images/DNeuralPiscadas.jpg" />
 
 Na pasta "Olhos" temos duas interfaces que enviam comandos OSC para controlar outros softwares:
 
