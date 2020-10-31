@@ -1,6 +1,35 @@
-# Detectores Neural de Expressão Facial
+# Detectores Neurais de Expressão Facial
+
+<img src="images/DNeuralPiscadas.jpg" />
+
+Esse projeto visa implementar interfaces humano-máquina, cujos valores de entrada
+são gerados por expressões faciais. Essas expressões são interpretadas por visão computacional, através de redes neurais.
+As redes neurais utilizadas aqui foram treinadas para detectar o rosto humano e indexar marcadores faciais em tempo real.
+Os marcadores faciais são vetores (x,y) cujas distancias euclidianas podem ser medidas para
+inferência de gestos na expressão facial.
+
+Os exemplos deste projeto foram escritos e testados em Python 3.7.8 com a biblioteca OpenCV 4.4.0.
 
 ## Abertura dos Olhos
+
+
+
+Na pasta "Olhos" temos duas interfaces que enviam comandos OSC para controlar outros softwares:
+
+### Camera_OSC_Detector_Neural_Piscadas.py
+Detecta cada fechamento singular das pálpebras em cada iteração.
+Ao detectar o fechamento, um comando OSC é enviado.
+Assim o software pode comandar outros softwares, disparando eventos.
+
+Na pasta "Interfaces_Controlaveis_OSC", temos um programa exemplo.
+O sketch em Processing "Bolinhas_OSC_PISCADAS" gera circulos preenchidos
+com posicionamento e cores randomizadas a cada piscada.
+
+### Camera_OSC_Detector_Neural_OlhosFechados.py
+Detecta o fechamento persistente das pálpebras por um período determinado de iterações.
+Caso os olhos permaneçam fechados nesse intervalo, um comando OSC é enviado.
+Ao abrir os olhos, outro comando OSC é disparado.
+Assim o software pode comandar outros softwares, alternando entre dois estados.
 
 Modelo otimizado de detecção de rosto baseado na RFB-320:
 Custo aproximado entre 90~109 MFlops: 
