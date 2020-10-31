@@ -13,7 +13,6 @@ Os exemplos deste projeto foram escritos e testados em Python 3.7.8 com a biblio
 ## Abertura dos Olhos
 
 <img src="images/DNeuralPiscadas.jpg" />
-
 Na pasta "Olhos" temos duas interfaces que enviam comandos OSC para controlar outros softwares:
 
 ### Camera_OSC_Detector_Neural_Piscadas.py
