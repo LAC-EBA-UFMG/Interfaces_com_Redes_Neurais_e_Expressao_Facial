@@ -96,10 +96,10 @@ def to_numpy(tensor):
 def euclidean_dist(ptA, ptB):
 	# funcao que computa a distancia euclidiana
     # entre dois vetores (x,y)
-    # Internamente deve ser -> sqrt(abs(x1-x2)^2 + abs(y1-y2)^2)
+    # Internamente deve ser -> sqrt((x1-x2)^2 + (y1-y2)^2)
     return np.sqrt(
-                pow(np.abs(ptA[0]-ptB[0]),2) + 
-                pow(np.abs(ptA[1]-ptB[1]),2)
+                pow(ptA[0]-ptB[0],2) + 
+                pow(ptA[1]-ptB[1],2)
             )
     #Esta função abaixo poderia ser utilizada
     #mas a anterior é mais didática
