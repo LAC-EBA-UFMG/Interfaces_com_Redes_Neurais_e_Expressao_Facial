@@ -1,20 +1,18 @@
 # Detectores Neurais de Expressão Facial
 
-<img src="images/DNeuralPiscadas.gif" /> <img src="images/expressoes.gif" />
-
 Esse projeto visa implementar interfaces humano-máquina, cujos valores de entrada
 são gerados por expressões faciais. Essas expressões são interpretadas por visão computacional, através de redes neurais.
 As redes neurais utilizadas aqui foram treinadas para detectar o rosto humano e indexar marcadores faciais em tempo real.
 Os marcadores faciais são vetores (x,y) cujas distâncias euclidianas podem ser medidas para
 inferência de gestos da expressão facial.
 
+<img src="images/DNeuralPiscadas.gif" />  <img src="images/expressoes.gif" />
 <img src="images/marcadores.gif" />
 
 Os exemplos deste projeto foram escritos e testados em Python 3.7.8 com a biblioteca OpenCV 4.4.0.
 
 ## Interfaces em função do EAR (Eyes Aspect Ratio)
 
-<img src="images/DNeuralPiscadas.jpg" />
 Na pasta "Olhos" temos duas interfaces que enviam comandos OSC para controlar outros softwares:
 
 ### Camera_OSC_Detector_Neural_Piscadas.py
