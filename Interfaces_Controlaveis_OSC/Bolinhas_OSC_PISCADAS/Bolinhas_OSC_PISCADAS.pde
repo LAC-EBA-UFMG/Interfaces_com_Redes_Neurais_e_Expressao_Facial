@@ -52,8 +52,10 @@ void draw() {
   }
 }
 
+//Qualquer tecla pressionada
+//vai induzir a limpeza da tela no draw
 void keyPressed() {
-  count = 500;
+  count = 500; //contagem maxima pra limpar a tela
 }
 
 //Função que desenha bolinhas na tela
