@@ -35,13 +35,13 @@ O modelo otimizado de detecção de rosto é baseado na RFB-320:<br>
 (custo aproximado entre 90~109 MFlops)<br>
 https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
 
-Esse programa foi baseado na codificação de:
+Esse programa foi baseado na codificação de:<br>
 Cunjian Chen (ccunjian@gmail.com) (pythorch_face_landmark)
 https://github.com/cunjian/pytorch_face_landmark.git
 
 
-O padrão de marcadores faciais utilizado aqui é o de 68 pontos (Multi-PIE 68):
-Por C. Sagonas, E. Antonakos, G, Tzimiropoulos, S. Zafeiriou, M. Pantic.
+O padrão de marcadores faciais utilizado aqui é o de 68 pontos (Multi-PIE 68):<br>
+Por C. Sagonas, E. Antonakos, G, Tzimiropoulos, S. Zafeiriou, M. Pantic.<br>
 https://ibug.doc.ic.ac.uk/media/uploads/documents/sagonas_cvpr_2013_amfg_w.pdf
 O modelo treinado de detecção, via HOG e árvores de regressão,
 foi retirado da biblioteca DLIB criada por Davis E. King.
