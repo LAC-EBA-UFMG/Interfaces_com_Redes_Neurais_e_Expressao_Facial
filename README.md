@@ -31,7 +31,7 @@ Ao abrir os olhos, outro comando OSC é disparado.
 Assim o software pode comandar outros softwares, alternando entre dois estados.
 
 ### Detalhes do código e referências
-O modelo otimizado de detecção de rosto baseado na RFB-320:
+O modelo otimizado de detecção de rosto é baseado na RFB-320:
 Custo aproximado entre 90~109 MFlops: 
 https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB
 
