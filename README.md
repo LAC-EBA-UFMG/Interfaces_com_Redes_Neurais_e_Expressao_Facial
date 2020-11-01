@@ -14,7 +14,6 @@ Os exemplos deste projeto foram escritos e testados em Python 3.7.8 com a biblio
 
 ## Interfaces em função do EAR (Eyes Aspect Ratio)
 
-<img src="images/DNeuralPiscadas.jpg" />
 Na pasta "Olhos" temos duas interfaces que enviam comandos OSC para controlar outros softwares:
 
 ### Camera_OSC_Detector_Neural_Piscadas.py
