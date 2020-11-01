@@ -52,6 +52,10 @@ void draw() {
   }
 }
 
+void keyPressed() {
+  count = 500;
+}
+
 //Função que desenha bolinhas na tela
 //nas coordenadas recebidas de X e Y
 void desenha_bolinha(int x, int y){
