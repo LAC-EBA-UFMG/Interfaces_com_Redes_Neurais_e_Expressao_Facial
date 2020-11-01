@@ -42,13 +42,13 @@ https://github.com/cunjian/pytorch_face_landmark.git
 
 O padrão de marcadores faciais utilizado aqui é o de 68 pontos (Multi-PIE 68):<br>
 Por C. Sagonas, E. Antonakos, G, Tzimiropoulos, S. Zafeiriou, M. Pantic.<br>
-https://ibug.doc.ic.ac.uk/media/uploads/documents/sagonas_cvpr_2013_amfg_w.pdf
+https://ibug.doc.ic.ac.uk/media/uploads/documents/sagonas_cvpr_2013_amfg_w.pdf <br>
 O modelo treinado de detecção, via HOG e árvores de regressão,
 foi retirado da biblioteca DLIB criada por Davis E. King.
 
-O cálculo de aspecto dos olhos segue os parâmetros indicados no artigo:
+O cálculo de aspecto dos olhos segue os parâmetros indicados no artigo:<br>
 "Real-Time Eye Blink Detection using Facial Landmarks"
-de Tereza Soukupová e Jan Cech
+de Tereza Soukupová e Jan Cech <br>
 https://vision.fe.uni-lj.si/cvww2016/proceedings/papers/05.pdf
 
 Breve explicação:
