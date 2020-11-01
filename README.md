@@ -55,7 +55,7 @@ Breve explicação:
 
 A largura dos olhos, em pixels, se modifica em relação à distância
 da câmera. Assim, utiliza-se a medição dessa largura do olho como base de
-comparação com a medição da altura do olhos, para inferir a sua abertura.
+comparação com a medição da altura, para inferir a sua abertura.
 
 Cada marcador facial é um vetor (x,y) correspondente ao pixel indexado.
 Para cada olho, utilizam-se 6 desses marcadores, sendo
