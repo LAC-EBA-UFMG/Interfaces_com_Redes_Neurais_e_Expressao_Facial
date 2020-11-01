@@ -41,7 +41,9 @@ https://github.com/cunjian/pytorch_face_landmark.git
 
 
 O padrão de marcadores faciais utilizado aqui é o de 68 pontos (Multi-PIE 68):<br>
-Por C. Sagonas, E. Antonakos, G, Tzimiropoulos, S. Zafeiriou, M. Pantic.<br>
+<img src="images/Multi_PIE_68.jpg" />
+
+Esse padrão de notação foi introduzido por C. Sagonas, E. Antonakos, G, Tzimiropoulos, S. Zafeiriou, M. Pantic.<br>
 https://ibug.doc.ic.ac.uk/media/uploads/documents/sagonas_cvpr_2013_amfg_w.pdf <br>
 O modelo treinado de detecção, via HOG e árvores de regressão,
 foi retirado da biblioteca DLIB criada por Davis E. King.
