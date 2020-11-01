@@ -3,7 +3,7 @@
 Esse projeto visa implementar interfaces humano-máquina, cujos valores de entrada
 são gerados por expressões faciais. Essas expressões são interpretadas por visão computacional, através de redes neurais.
 As redes neurais utilizadas aqui foram treinadas para detectar o rosto humano e indexar marcadores faciais em tempo real.
-Os marcadores faciais são vetores (x,y) cujas distâncias euclidianas podem ser medidas para
+Os marcadores faciais são vetores bidimensionais(x,y) cujas distâncias euclidianas podem ser medidas para
 inferência de gestos da expressão facial.
 
 <img src="images/DNeuralPiscadas.gif" width="320" />  <img src="images/expressoes.gif" width="320" />
