@@ -1,6 +1,6 @@
 # Detectores Neurais de Expressão Facial
 
-<video src="videos/DNeuralPiscadas.mp4" width="448" height="338" controls preload></video>
+<video src="videos/DNeuralPiscadas.m4v" width="448" height="338" controls preload></video>
 
 Esse projeto visa implementar interfaces humano-máquina, cujos valores de entrada
 são gerados por expressões faciais. Essas expressões são interpretadas por visão computacional, através de redes neurais.
