@@ -5,8 +5,8 @@
 Esse projeto visa implementar interfaces humano-máquina, cujos valores de entrada
 são gerados por expressões faciais. Essas expressões são interpretadas por visão computacional, através de redes neurais.
 As redes neurais utilizadas aqui foram treinadas para detectar o rosto humano e indexar marcadores faciais em tempo real.
-Os marcadores faciais são vetores (x,y) cujas distancias euclidianas podem ser medidas para
-inferência de gestos na expressão facial.
+Os marcadores faciais são vetores (x,y) cujas distâncias euclidianas podem ser medidas para
+inferência de gestos da expressão facial.
 
 Os exemplos deste projeto foram escritos e testados em Python 3.7.8 com a biblioteca OpenCV 4.4.0.
 
