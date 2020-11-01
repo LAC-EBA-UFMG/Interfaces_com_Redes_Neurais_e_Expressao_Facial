@@ -10,7 +10,7 @@ inferência de gestos na expressão facial.
 
 Os exemplos deste projeto foram escritos e testados em Python 3.7.8 com a biblioteca OpenCV 4.4.0.
 
-## Abertura dos Olhos
+## Interfaces em função do EAR (Eyes Aspect Ratio)
 
 <img src="images/DNeuralPiscadas.jpg" />
 Na pasta "Olhos" temos duas interfaces que enviam comandos OSC para controlar outros softwares:
@@ -66,7 +66,8 @@ Para cada olho, utilizam-se 6 desses marcadores, sendo
             F*   E*
 
 Equação de EAR (Eye Aspect Ratio)
-(|| B - F || + || C - E ||) / ( 2 * || A - D ||)
-
+<pre>
+EAR = || B - F || + || C - E || / (2 * || A - D ||)
+</pre>
 Portanto, a equação é uma razão entre a soma das distâncias euclidianas dos vetores da
 altura do olho em função do dobro da distância euclidiana dos vetores da largura.
