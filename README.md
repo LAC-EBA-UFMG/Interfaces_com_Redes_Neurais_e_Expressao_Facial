@@ -1,5 +1,10 @@
 # Detectores Neurais de Expressão Facial
 
+<pre>Este experimento faz parte do Projeto de Extensão "Repositório de Código do LAC".
+Um projeto que visa disponibilizar código e documentação de referência para os desenvolvimentos
+no Laboratório de Artes Computacionais da Escola de Belas Artes da UFMG,
+estendendo o acesso a esse material à comunidade geral de software e hardware livres.</pre>
+
 Esse projeto visa implementar interfaces humano-máquina, cujos valores de entrada
 são gerados por expressões faciais. Essas expressões são interpretadas por visão computacional, através de redes neurais.
 As redes neurais utilizadas aqui foram treinadas para detectar o rosto humano e indexar marcadores faciais em tempo real.
