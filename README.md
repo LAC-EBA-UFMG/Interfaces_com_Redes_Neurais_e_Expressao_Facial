@@ -94,6 +94,9 @@ O "k" é uma constante de valor 1, indicando que não haverá incremento por ite
 Na primeira iteração Pi é o valor de x do primeiro ponto, enquanto Pj é o valor de x do segundo ponto (um menos o outro é a distância em x).
 Na segunda iteração Pi é o valor de y do primeiro ponto, enquanto Pj é o valor de y do segundo ponto (um menos o outro é a distância em y).
 
+Isso resulta na tradução da primeira notação em:
+<p><img width="320" src="images/DistEuclidianaTrad.jpg" /></p>
+
 Ao obtermos as distâncias em x e em y, pela subtração dos atributos, temos dois lados de um triângulo retângulo.
 Assim, se tomarmos a distância em x como "lado a" e a distância em y como "lado b", o que queremos descobrir é o "lado c", formado pela diagonal que liga os pontos.
 Isso se inscreve, portanto, numa equação do segundo grau. Onde a distância entre os vértices(pontos dados) é a hipotenusa (o lado c).
