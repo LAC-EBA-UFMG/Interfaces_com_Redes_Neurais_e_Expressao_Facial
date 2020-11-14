@@ -85,8 +85,8 @@ Como são vetores bidimensionais, a distância euclidiana entre dois pontos é d
 
 Isso significa que é tirada a raiz do somatório da diferença ao quadrado dos atributos dos vetores.
 O que nos dará sempre um valor absoluto, nunca negativo.
-Na notação, cada ponto possui dois 2 atributos, indicados pelo "2" acima do sigma (símbolo de somatório).
-Sendo assim, o somatório terá duais iterações, uma para x e outra para y.
+Na notação, cada ponto possui dois 2 atributos (x e y), indicados pelo "2" acima do sigma (símbolo de somatório).
+Sendo assim, o somatório terá duas iterações, uma para x e outra para y.
 
 Como são dois pontos distintos, utilizam-se os índices i e j como o valor do atributo de cada ponto na iteração corrente.
 O "k" é uma constante de valor 1, indicando que não haverá incremento por iteração nos índices.
