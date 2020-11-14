@@ -79,3 +79,6 @@ EAR = (|| B - F || + || C - E ||) / (2 * || A - D ||)
 </pre>
 Portanto, a equação é uma razão entre a soma das distâncias euclidianas dos vetores da
 altura do olho em função do dobro da distância euclidiana dos vetores da largura.
+
+Como são vetores bidimensionais, a distância euclidiana é dada por:
+<p><img width="320" src="images/DistEuclidiana.jpg" /></p>
