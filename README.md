@@ -95,7 +95,7 @@ Na primeira iteração Pi é o valor de x do primeiro ponto, enquanto Pj é o va
 Na segunda iteração Pi é o valor de y do primeiro ponto, enquanto Pj é o valor de y do segundo ponto (um menos o outro é a distância em y).
 
 Isso resulta na tradução da primeira notação em:
-<p><img width="320" src="images/DistEuclidianaTrad.jpg" /></p>
+<p><img width="480" src="images/DistEuclidianaTrad.jpg" /></p>
 
 Ao obtermos as distâncias em x e em y, pela subtração dos atributos, temos dois lados de um triângulo retângulo.
 Assim, se tomarmos a distância em x como "lado a" e a distância em y como "lado b", o que queremos descobrir é o "lado c", formado pela diagonal que liga os pontos.
