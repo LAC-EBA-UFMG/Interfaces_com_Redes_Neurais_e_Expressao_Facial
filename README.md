@@ -87,13 +87,17 @@ Isso significa que é tirada a raiz do somatório da diferença ao quadrado dos 
 O que nos dará sempre um valor absoluto, nunca negativo.
 Na notação, cada ponto possui dois 2 atributos, indicados pelo "2" acima do sigma (símbolo de somatório).
 Sendo assim, o somatório terá duais iterações, uma para x e outra para y.
+
 Como são dois pontos distintos, utilizam-se os índices i e j como o valor do atributo de cada ponto na iteração corrente.
-O "k" é uma constante de valor 1, indicando que não haverá incremento por iteração nos índices (i,j).
-Na primeira iteração Pi é o x do primeiro ponto, enquanto Pj é o x do segundo ponto (um menos o outro é a distância em x).
-Na segunda iteração Pi é o y do primeiro ponto, enquanto Pj é o y do segundo ponto (um menos o outro é a distância em y).
-Ao obtermos as distâncias em x e y, pela subtração dos atributos, temos dois lados de um triângulo retângulo.
-Isso se inscreve, portanto, numa equação do segundo grau. Onde a distância dos vértices(pontos dados) é a hipotenusa.
-Por isso, a raiz da soma dessas distâncias ao quadrado nos dá a distância euclidiana, ou seja o lado que nos faltava saber a distância (a hipotenusa).
+O "k" é uma constante de valor 1, indicando que não haverá incremento por iteração nos índices.
+
+Na primeira iteração Pi é o valor de x do primeiro ponto, enquanto Pj é o valor de x do segundo ponto (um menos o outro é a distância em x).
+Na segunda iteração Pi é o valor de y do primeiro ponto, enquanto Pj é o valor de y do segundo ponto (um menos o outro é a distância em y).
+
+Ao obtermos as distâncias em x e em y, pela subtração dos atributos, temos dois lados de um triângulo retângulo.
+Nomeando a diastância e x de lado "a" e a distância em y de lado "b", o que queremos é descobrir o lado "c".
+Isso se inscreve, portanto, numa equação do segundo grau. Onde a distância entre os vértices(pontos dados) é a hipotenusa (o lado c).
+Por isso, a raiz do somatório dessas distâncias ao quadrado nos dará a distância euclidiana, ou seja, o lado que nos faltava saber: a hipotenusa.
 
 
 
