@@ -83,13 +83,12 @@ altura do olho em função do dobro da distância euclidiana dos vetores da larg
 Como são vetores bidimensionais, a distância euclidiana entre dois pontos é dada por:
 <p><img width="320" src="images/DistEuclidiana.jpg" /></p>
 
-Isso significa que é tirada a raiz do somatório da diferença ao quadrado dos atributos dos vetores.
-O que nos dará sempre um valor absoluto, nunca negativo.
-Na notação, cada ponto possui dois 2 atributos (x e y), indicados pelo "2" acima do sigma (símbolo de somatório).
-Sendo assim, o somatório terá duas iterações, uma para x e outra para y.
+Isso significa que a distância entre os pontos se dá pela extração da raiz do somatório da diferença ao quadrado dos atributos dos vetores.
+Na notação, cada ponto possui dois 2 atributos (x e y), o que é indicado pelo "2" acima do sigma (símbolo de somatório).
+Sendo assim, o somatório terá duas iterações, uma para os valores de x e outra para os valores de y.
 
 Como são dois pontos distintos, utilizam-se os índices i e j como o valor do atributo de cada ponto na iteração corrente.
-O "k" é uma constante de valor 1, indicando que não haverá incremento por iteração nos índices.
+O "k" é uma constante de valor 1, indicando que não haverá incremento nos índices a cada iteração.
 
 Na primeira iteração Pi é o valor de x do primeiro ponto, enquanto Pj é o valor de x do segundo ponto (um menos o outro é a distância em x).
 Na segunda iteração Pi é o valor de y do primeiro ponto, enquanto Pj é o valor de y do segundo ponto (um menos o outro é a distância em y).
