@@ -69,9 +69,7 @@ Cada marcador facial é um vetor (x,y) correspondente ao pixel indexado.
 Para cada olho, utilizam-se 6 desses marcadores, sendo
 2 pares(4 pontos) para a altura e um par(2 pontos) para a largura.
 
-            B*   C*
-        A*           D*
-            F*   E*
+<img src="images/EAR_Pontos.jpg" width="280" />
 
 Equação de EAR (Eye Aspect Ratio)
 <pre>
