@@ -72,7 +72,7 @@ Para cada olho, utilizam-se 6 desses marcadores, sendo
 <img src="images/EAR_Pontos.jpg" width="280" />
 
 Equação de EAR (Eye Aspect Ratio)
-<p><img width="240" src="images/EAR_Formula.jpg" /></p>
+<p><img width="500" src="images/EAR_Formula.jpg" /></p>
 
 Portanto, a equação é uma razão entre a soma das distâncias euclidianas dos vetores da
 altura do olho em função do dobro da distância euclidiana dos vetores da largura.
