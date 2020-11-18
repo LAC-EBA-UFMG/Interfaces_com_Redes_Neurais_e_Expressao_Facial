@@ -59,15 +59,17 @@ O cálculo de aspecto dos olhos segue os parâmetros indicados no artigo:<br>
 de Tereza Soukupová e Jan Cech <br>
 https://vision.fe.uni-lj.si/cvww2016/proceedings/papers/05.pdf
 
-Breve explicação:
+
+### Sobre o cálculo do EAR (Eyes Aspect Ratio)
 
 A largura dos olhos, em pixels, se modifica em relação à distância
 da câmera. Assim, utiliza-se a medição dessa largura do olho como base de
 comparação com a medição da altura, para inferir a sua abertura.
 
-Cada marcador facial é um vetor (x,y) correspondente ao pixel indexado.
+Cada marcador facial é um par ordenado, que corresponde à indexação do píxel no qual se localiza.
+Ou seja, é um vetor (x,y) cujos valores são referentes à distância em pixels do ponto de origem da imagem (x=0,y=0).
 Para cada olho, utilizam-se 6 desses marcadores, sendo
-2 pares(4 pontos) para a altura e um par(2 pontos) para a largura.
+2 pares(4 pontos) para a altura e um par(2 pontos) para a largura, conforme vemos na figura abaixo:
 
 <img src="images/EAR_Pontos.jpg" width="280" />
 
