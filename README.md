@@ -62,7 +62,7 @@ https://vision.fe.uni-lj.si/cvww2016/proceedings/papers/05.pdf
 
 ### Sobre o cálculo do EAR (Eyes Aspect Ratio)
 
-A largura dos olhos, em pixels, muda em relação à distância
+A largura dos olhos(em pixels) muda em relação à distância
 da câmera. Assim, utiliza-se a medição dessa largura do olho como base de
 comparação com a medição da altura, para inferir a sua abertura.
 
