@@ -97,7 +97,7 @@ Isso resulta na tradução da primeira notação em:
 
 Ao obtermos as distâncias projetadas nos eixos X e Y, pela subtração dos atributos, temos dois lados de um triângulo retângulo.
 Assim, se tomarmos a projeção em X como "lado a" e a projeção em Y como "lado b", o que queremos descobrir é o "lado c", formado pela diagonal que liga os pontos.
-Isso se inscreve, portanto, numa equação do segundo grau. Onde a distância entre os vértices(pontos dados) é a hipotenusa (o lado c).
+Isso se inscreve, portanto, no teorema de Pitágoras, onde a distância entre os vértices(pontos dados) é a hipotenusa (o lado c).
 Por isso, a raiz do somatório dessas distâncias ao quadrado nos dará a distância euclidiana, ou seja, o lado que nos faltava saber: a hipotenusa.
 
 
