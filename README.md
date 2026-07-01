@@ -1,5 +1,14 @@
 # Detectores Neurais de Expressão Facial
 
+🇧🇷 Português | 🇺🇸 [English](README.en.md)
+
+[![Python](https://img.shields.io/badge/python-3.10-blue.svg)](#)
+[![OpenCV](https://img.shields.io/badge/opencv-4.13.0-green.svg)](#)
+[![ONNX Runtime](https://img.shields.io/badge/onnxruntime-active-orange.svg)](#)
+[![OSC](https://img.shields.io/badge/osc-python--osc-red.svg)](#)
+[![License: GPL v2](https://img.shields.io/badge/license-GNU%20GPL%20v2-blue.svg)](LICENSE)
+
+
 <pre>Este experimento faz parte do Projeto de Extensão "Repositório de Conhecimento do LAC".
 Registro SIEX: 403654.
 Um projeto que disponibiliza código e documentação de referência para os desenvolvimentos
