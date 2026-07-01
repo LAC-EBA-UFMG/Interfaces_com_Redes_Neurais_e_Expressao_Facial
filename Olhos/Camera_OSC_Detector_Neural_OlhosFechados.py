@@ -55,13 +55,11 @@ O cálculo de aspecto dos olhos segue os parâmetros indicados no artigo:
 #######################################################################
 
 """
+import os
 import time
 import cv2
 import numpy as np
-import onnx
 import vision.utils.box_utils_numpy as box_utils
-from caffe2.python.onnx import backend
-
 
 #Controle de estado em Play = 1 em Stop = 0
 estadoVid = 0
@@ -86,24 +84,13 @@ client = SimpleUDPClient("127.0.0.1", 8000)
 
 # onnx runtime
 import onnxruntime as ort
+import onnxruntime
 
 # import libraries for landmark
 from common.utils import BBox,drawLandmark_multiple
-from PIL import Image
-import torchvision.transforms as transforms
 
-# setup the parameters
-resize = transforms.Resize([112, 112])
-to_tensor = transforms.ToTensor()
-
-# import the landmark detection models
-import onnx
-import onnxruntime
-onnx_model_landmark = onnx.load("onnx/pfld.onnx")
-onnx.checker.check_model(onnx_model_landmark)
-ort_session_landmark = onnxruntime.InferenceSession("onnx/pfld.onnx")
-def to_numpy(tensor):
-    return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
+script_dir = os.path.dirname(os.path.abspath(__file__))
+ort_session_landmark = onnxruntime.InferenceSession(os.path.join(script_dir, "onnx", "pfld.onnx"))
 
 def euclidean_dist(ptA, ptB):
 	# funcao que computa a distancia euclidiana
@@ -147,30 +134,53 @@ def predict(width, height, confidences, boxes, prob_threshold, iou_threshold=0.3
     return picked_box_probs[:, :4].astype(np.int32), np.array(picked_labels), picked_box_probs[:, 4]
 
 
-label_path = "models/voc-model-labels.txt"
+label_path = os.path.join(script_dir, "models", "voc-model-labels.txt")
 
 #Modelo ONNX pra 320px
-onnx_path = "models/onnx/version-RFB-320.onnx"
-class_names = [name.strip() for name in open(label_path).readlines()]
-
-predictor = onnx.load(onnx_path)
-onnx.checker.check_model(predictor)
-onnx.helper.printable_graph(predictor.graph)
-predictor = backend.prepare(predictor, device="CPU")  # default CPU
+onnx_path = os.path.join(script_dir, "models", "onnx", "version-RFB-320.onnx")
+class_names = [name.strip() for name in open(label_path, encoding="utf-8").readlines()]
 
 ort_session = ort.InferenceSession(onnx_path)
 input_name = ort_session.get_inputs()[0].name
 
-# Captura simples, ainda sem otimização de threads e queue
-#!!! Otimizar no futuro !!!
-cap = cv2.VideoCapture(1)  # capture from camera
+# Permite escolher o índice da câmera por argumento de linha de comando (ex: python script.py 0)
+import sys
+camera_idx = 1
+if len(sys.argv) > 1:
+    try:
+        camera_idx = int(sys.argv[1])
+    except ValueError:
+        pass
+
+# Tenta abrir o índice desejado
+cap = cv2.VideoCapture(camera_idx, cv2.CAP_DSHOW)
+ret, test_img = cap.read()
+
+# Se falhar ou for tela preta (média de pixel zero, comum em OBS Virtual Cam inativa), tenta MSMF
+if not ret or test_img is None or np.mean(test_img) == 0:
+    cap.release()
+    cap = cv2.VideoCapture(camera_idx)
+    ret, test_img = cap.read()
+
+# Se ainda assim falhar ou der tela preta, tenta o outro índice (fallback automático entre 0 e 1)
+if not ret or test_img is None or np.mean(test_img) == 0:
+    cap.release()
+    alt_idx = 0 if camera_idx == 1 else 1
+    cap = cv2.VideoCapture(alt_idx, cv2.CAP_DSHOW)
+    ret, test_img = cap.read()
+    if not ret or test_img is None or np.mean(test_img) == 0:
+        cap.release()
+        cap = cv2.VideoCapture(alt_idx)
+
+
+
 threshold = 0.8 #definição probabilística
 
 sum = 0 #num de iterações, exibe no final
 while True:
     ret, orig_image = cap.read()
-    #Flipando, porque a imagem da captura veio invertida
-    orig_image = cv2.flip(orig_image, 0)
+    #Flipando, porque a imagem da captura veio invertida (desative o flip vertical 0 se a imagem aparecer de cabeça para baixo)
+    # orig_image = cv2.flip(orig_image, 0)
     orig_image = cv2.flip(orig_image, 1)
     if orig_image is None:
         print("no img")
@@ -236,19 +246,21 @@ while True:
         cropped=img[new_bbox.top:new_bbox.bottom,new_bbox.left:new_bbox.right]
         if (dx > 0 or dy > 0 or edx > 0 or edy > 0):
             cropped = cv2.copyMakeBorder(cropped, int(dy), int(edy), int(dx), int(edx), cv2.BORDER_CONSTANT, 0)            
-        cropped_face = cv2.resize(cropped, (out_size, out_size))
+        # Redimensionamento em duas etapas (como no original: 56x56 -> 112x112)
+        # Isso atua como um filtro passa-baixa, reduzindo o ruído de alta frequência (jitter dos landmarks)
+        cropped_face = cv2.resize(cropped, (56, 56))
+        cropped_face = cv2.resize(cropped_face, (112, 112))
 
         if cropped_face.shape[0]<=0 or cropped_face.shape[1]<=0:
             continue
         cropped_face = cv2.cvtColor(cropped_face, cv2.COLOR_BGR2RGB)    
-        cropped_face = Image.fromarray(cropped_face)
-        test_face = resize(cropped_face)
-        test_face = to_tensor(test_face)
-        test_face.unsqueeze_(0)
+        test_face = cropped_face.astype(np.float32) / 255.0
+        test_face = np.transpose(test_face, (2, 0, 1))
+        test_face = np.expand_dims(test_face, axis=0)
 
         #Detecção dos índices do rosto com medição de custo
         start = time.time()             
-        ort_inputs = {ort_session.get_inputs()[0].name: to_numpy(test_face)}
+        ort_inputs = {ort_session_landmark.get_inputs()[0].name: test_face}
         ort_outs = ort_session_landmark.run(None, ort_inputs)
         end = time.time()
         print('Custo fase 2: {:.6f}s.'.format(end - start))

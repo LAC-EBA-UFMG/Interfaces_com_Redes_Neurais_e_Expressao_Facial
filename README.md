@@ -101,5 +101,84 @@ Isso se inscreve, portanto, no teorema de Pitágoras, onde a distância entre os
 Por isso, a raiz do somatório dessas distâncias ao quadrado nos dará a distância euclidiana, ou seja, o lado que nos faltava saber: a hipotenusa.
 
 
+## Como Configurar e Executar o Projeto
+
+Para executar este projeto em sua máquina de forma rápida e isolada, recomendamos utilizar o **Miniconda** (uma versão leve do Anaconda sem interface gráfica, de apenas ~80MB).
+
+### 1. Instalação do Miniconda
+1. Baixe o instalador do Miniconda para o seu sistema operacional na [Página Oficial de Downloads do Miniconda](https://docs.conda.io/en/latest/miniconda.html).
+2. Execute o instalador e conclua a instalação mantendo as opções padrões do sistema.
+
+### 2. Configurando o Ambiente
+1. Abra o menu iniciar, pesquise por **Anaconda Prompt (miniconda3)** (no Windows) ou abra o terminal (no macOS/Linux) e navegue até a pasta deste repositório:
+   ```bash
+   cd caminho/para/o/repositorio
+   ```
+2. Crie um ambiente virtual com Python 3.10 (versão recomendada e estável):
+   ```bash
+   conda create -n detector_facial python=3.10 -y
+   ```
+   > [!IMPORTANT]
+   > **Resolução de Erro de Termos de Serviço (`CondaToSNonInteractiveError`)**:
+   >
+   > Se durante a criação do ambiente o Conda exibir uma mensagem solicitando a aceitação dos termos de serviço da Anaconda, execute o comando abaixo no terminal para aceitá-los:
+   > ```bash
+   > conda tos accept
+   > ```
+   > *(Ou execute o comando de criação passando o canal gratuito conda-forge: `conda create -n detector_facial -c conda-forge python=3.10 -y`)*
+
+3. Ative o ambiente virtual criado:
+   ```bash
+   conda activate detector_facial
+   ```
+4. Instale as dependências essenciais e leves do projeto a partir do arquivo `requirements.txt`:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### 3. Executando os Detectores
+Certifique-se de que sua webcam está conectada. Os scripts utilizam a **resolução padrão de fábrica da sua câmera** para garantir compatibilidade e estabilidade máxima de FPS.
+
+Além disso, os scripts possuem um mecanismo de **descarte de tela preta**: se o índice de câmera abrir um dispositivo virtual inativo (como OBS Virtual Cam), ele detecta que o frame está vazio e tenta o outro índice de câmera automaticamente.
+
+#### Selecionando o Índice da Câmera
+Por padrão, os scripts tentam abrir a câmera de índice `1` e depois fazem fallback para a `0`. Você pode **forçar um índice específico** passando-o como argumento no final do comando:
+
+* Para rodar o **Detector de Piscadas** na câmera `1`:
+  ```bash
+  python Olhos/Camera_OSC_Detector_Neural_Piscadas.py 1
+  ```
+* Para rodar o **Detector de Piscadas** na câmera `0`:
+  ```bash
+  python Olhos/Camera_OSC_Detector_Neural_Piscadas.py 0
+  ```
+* Para rodar o **Detector de Olhos Fechados** na câmera `1`:
+  ```bash
+  python Olhos/Camera_OSC_Detector_Neural_OlhosFechados.py 1
+  ```
+* Pressione a tecla `q` na janela de visualização da câmera para encerrar o script.
+
+---
+
+## Solução de Problemas Comuns (Troubleshooting)
+
+### A. Imagem de Cabeça para Baixo (Flip Vertical)
+O código original vinha com inversão de eixos (vertical e horizontal) por conta do hardware de captura utilizado na época. 
+Se a imagem da sua webcam aparecer invertida verticalmente (de cabeça para baixo), localize o bloco de flip no script correspondente (dentro do `while True` principal):
+```python
+# No script utilizado:
+# orig_image = cv2.flip(orig_image, 0)  # Descomente esta linha para ativar o flip vertical
+orig_image = cv2.flip(orig_image, 1)    # Controla o flip horizontal (efeito espelho)
+```
+Basta comentar/descomentar a linha `cv2.flip(orig_image, 0)` conforme a necessidade do seu dispositivo de captura.
+
+### B. Falha de Import do `torch` (PyTorch)
+Os scripts foram limpos para rodar de forma ultra-leve apenas com OpenCV, NumPy e ONNX Runtime. Se você receber algum erro de `ModuleNotFoundError: No module named 'torch'`, certifique-se de que o arquivo [__init__.py](file:///X:/GEMINY/Interfaces_com_Redes_Neurais_e_Expressao_Facial/Olhos/vision/utils/__init__.py) está completamente vazio. Isso evita que arquivos utilitários de treinamento que importam o PyTorch sejam chamados desnecessariamente.
+
+### C. Erros de Caminho dos Modelos (`NoSuchFile`)
+Os caminhos para os arquivos `.onnx` e de rótulos (`voc-model-labels.txt`) agora são resolvidos **dinamicamente** com base no diretório em que o script está localizado. Isso permite que você execute os scripts com segurança a partir de qualquer pasta de trabalho no terminal.
+
+
+
 
 
