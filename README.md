@@ -21,8 +21,8 @@ As redes neurais utilizadas aqui foram treinadas para detectar o rosto humano e 
 Os marcadores faciais são vetores bidimensionais(x,y) cujas distâncias euclidianas podem ser medidas para
 inferência de gestos da expressão facial.
 
-<img src="images/DNeuralPiscadas.gif" width="320" />  <img src="images/expressoes.gif" width="320" />
-<img src="images/marcadores.gif" width="640" />
+<img src="images/DNeuralPiscadas.webp" width="320" />  <img src="images/expressoes.webp" width="320" />
+<img src="images/marcadores.webp" width="640" />
 
 Os exemplos deste projeto foram escritos e testados em Python 3.7.8 com a biblioteca OpenCV 4.4.0.
 
