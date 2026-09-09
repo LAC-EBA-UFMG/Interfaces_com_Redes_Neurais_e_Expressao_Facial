@@ -73,13 +73,13 @@ For each eye, 6 of these landmarks are used: 2 pairs (4 points) for the height a
 
 EAR (Eye Aspect Ratio) Equation:
 
-$$EAR = \frac{\overline{BF} + \overline{CE}}{2\overline{AD}} = \frac{\|B - F\| + \|C - E\|}{2\|A - D\|}$$
+$${\Large EAR = \frac{\overline{BF} + \overline{CE}}{2\overline{AD}} = \frac{\|B - F\| + \|C - E\|}{2\|A - D\|}}$$
 
 Therefore, the equation is a ratio between the sum of the Euclidean distances of the eye's height vectors and twice the Euclidean distance of the width vectors.
 
 Since they are bidimensional vectors, the Euclidean distance between two points is given by:
 
-$$d = \sqrt{\sum_{k=1}^{2}(P_{ik} - P_{jk})^2}$$
+$${\Large d = \sqrt{\sum_{k=1}^{2}(P_{ik} - P_{jk})^2}}$$
 
 This means that the distance between points is obtained by taking the square root of the sum of the squared differences of the vector coordinates.
 In the notation, each point has two coordinates ($x$ and $y$), indicated by the "2" above the sigma (summation symbol). Thus, the summation will have two iterations, one for the $x$ values and another for the $y$ values.
@@ -91,7 +91,7 @@ In the second iteration, $P_i$ is the y-value of the first point ($y_{p1}$), whi
 
 This translates the first notation into:
 
-$$d = \sqrt{(x_{p1} - x_{p2})^2 + (y_{p1} - y_{p2})^2}$$
+$${\Large d = \sqrt{(x_{p1} - x_{p2})^2 + (y_{p1} - y_{p2})^2}}$$
 
 By obtaining the projected distances on the X and Y axes, we get two sides of a right triangle.
 Thus, if we take the projection in X as "side a" and the projection in Y as "side b", what we want to find is "side c", formed by the diagonal connecting the points.
