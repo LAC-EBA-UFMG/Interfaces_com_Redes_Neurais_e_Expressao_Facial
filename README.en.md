@@ -19,15 +19,8 @@ This project aims to implement human-machine interfaces whose input values are g
 The neural networks used here were trained to detect the human face and index facial landmarks in real time.
 Facial landmarks are bidimensional vectors (x,y) whose Euclidean distances can be measured to infer gestures of the facial expression.
 
-<video autoplay loop muted playsinline width="320">
-    <source src="images/DNeuralPiscadas.webm" type="video/webm">
-</video>
-<video autoplay loop muted playsinline width="320">
-    <source src="images/expressoes.webm" type="video/webm">
-</video>
-<video autoplay loop muted playsinline width="640">
-    <source src="images/marcadores.webm" type="video/webm">
-</video>
+<img src="images/DNeuralPiscadas.gif" width="320" />  <img src="images/expressoes.gif" width="320" />
+<img src="images/marcadores.gif" width="640" />
 
 The examples in this project were written and tested in Python 3.10 with the OpenCV library.
 
