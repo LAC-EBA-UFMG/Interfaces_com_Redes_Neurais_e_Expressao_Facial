@@ -72,23 +72,26 @@ For each eye, 6 of these landmarks are used: 2 pairs (4 points) for the height a
 <img src="images/EAR_Pontos.jpg" width="280" />
 
 EAR (Eye Aspect Ratio) Equation:
-<p><img width="500" src="images/EAR_Formula.jpg" /></p>
+
+$$EAR = \frac{\overline{BF} + \overline{CE}}{2\overline{AD}} = \frac{\|B - F\| + \|C - E\|}{2\|A - D\|}$$
 
 Therefore, the equation is a ratio between the sum of the Euclidean distances of the eye's height vectors and twice the Euclidean distance of the width vectors.
 
 Since they are bidimensional vectors, the Euclidean distance between two points is given by:
-<p><img width="320" src="images/DistEuclidiana.jpg" /></p>
+
+$$d = \sqrt{\sum_{k=1}^{2}(P_{ik} - P_{jk})^2}$$
 
 This means that the distance between points is obtained by taking the square root of the sum of the squared differences of the vector coordinates.
-In the notation, each point has two coordinates (x and y), indicated by the "2" above the sigma (summation symbol). Thus, the summation will have two iterations, one for the x values and another for the y values.
+In the notation, each point has two coordinates ($x$ and $y$), indicated by the "2" above the sigma (summation symbol). Thus, the summation will have two iterations, one for the $x$ values and another for the $y$ values.
 
-Since there are two distinct points, indices i and j are used as the coordinate values of each point in the current iteration. The "k" is a constant of value 1, indicating that there will be no increment in the indices at each iteration.
+Since there are two distinct points, indices $i$ and $j$ are used as the coordinate values of each point in the current iteration. The $k$ is a constant of value 1, indicating that there will be no increment in the indices at each iteration.
 
-In the first iteration, Pi is the x-value of the first point (xp1), while Pj is the x-value of the second point (xp2) (one minus the other is the projected distance on the X axis).
-In the second iteration, Pi is the y-value of the first point (yp1), while Pj is the y-value of the second point (yp2) (one minus the other is the projected distance on the Y axis).
+In the first iteration, $P_i$ is the x-value of the first point ($x_{p1}$), while $P_j$ is the x-value of the second point ($x_{p2}$) (one minus the other is the projected distance on the X axis).
+In the second iteration, $P_i$ is the y-value of the first point ($y_{p1}$), while $P_j$ is the y-value of the second point ($y_{p2}$) (one minus the other is the projected distance on the Y axis).
 
 This translates the first notation into:
-<p><img width="480" src="images/DistEuclidianaTrad.jpg" /></p>
+
+$$d = \sqrt{(x_{p1} - x_{p2})^2 + (y_{p1} - y_{p2})^2}$$
 
 By obtaining the projected distances on the X and Y axes, we get two sides of a right triangle.
 Thus, if we take the projection in X as "side a" and the projection in Y as "side b", what we want to find is "side c", formed by the diagonal connecting the points.

@@ -82,27 +82,30 @@ Para cada olho, utilizam-se 6 desses marcadores, sendo
 
 <img src="images/EAR_Pontos.jpg" width="280" />
 
-Equação de EAR (Eye Aspect Ratio)
-<p><img width="500" src="images/EAR_Formula.jpg" /></p>
+Equação de EAR (Eye Aspect Ratio):
+
+$$EAR = \frac{\overline{BF} + \overline{CE}}{2\overline{AD}} = \frac{\|B - F\| + \|C - E\|}{2\|A - D\|}$$
 
 Portanto, a equação é uma razão entre a soma das distâncias euclidianas dos vetores da
 altura do olho em função do dobro da distância euclidiana dos vetores da largura.
 
 Como são vetores bidimensionais, a distância euclidiana entre dois pontos é dada por:
-<p><img width="320" src="images/DistEuclidiana.jpg" /></p>
+
+$$d = \sqrt{\sum_{k=1}^{2}(P_{ik} - P_{jk})^2}$$
 
 Isso significa que a distância entre os pontos se dá pela extração da raiz do somatório da diferença ao quadrado dos atributos dos vetores.
-Na notação, cada ponto possui dois 2 atributos (x e y), o que é indicado pelo "2" acima do sigma (símbolo de somatório).
-Sendo assim, o somatório terá duas iterações, uma para os valores de x e outra para os valores de y.
+Na notação, cada ponto possui dois 2 atributos ($x$ e $y$), o que é indicado pelo "2" acima do sigma (símbolo de somatório).
+Sendo assim, o somatório terá duas iterações, uma para os valores de $x$ e outra para os valores de $y$.
 
-Como são dois pontos distintos, utilizam-se os índices i e j como o valor do atributo de cada ponto na iteração corrente.
-O "k" é uma constante de valor 1, indicando que não haverá incremento nos índices a cada iteração.
+Como são dois pontos distintos, utilizam-se os índices $i$ e $j$ como o valor do atributo de cada ponto na iteração corrente.
+O $k$ é uma constante de valor 1, indicando que não haverá incremento nos índices a cada iteração.
 
-Na primeira iteração Pi é o valor de x do primeiro ponto (xp1), enquanto Pj é o valor de x do segundo ponto (xp2) (um menos o outro é a distância projetada no eixo X).
-Na segunda iteração Pi é o valor de y do primeiro ponto (yp1), enquanto Pj é o valor de y do segundo ponto (yp2) (um menos o outro é a distância projetada no eixo Y).
+Na primeira iteração $P_i$ é o valor de $x$ do primeiro ponto ($x_{p1}$), enquanto $P_j$ é o valor de $x$ do segundo ponto ($x_{p2}$) (um menos o outro é a distância projetada no eixo X).
+Na segunda iteração $P_i$ é o valor de $y$ do primeiro ponto ($y_{p1}$), enquanto $P_j$ é o valor de $y$ do segundo ponto ($y_{p2}$) (um menos o outro é a distância projetada no eixo Y).
 
 Isso resulta na tradução da primeira notação em:
-<p><img width="480" src="images/DistEuclidianaTrad.jpg" /></p>
+
+$$d = \sqrt{(x_{p1} - x_{p2})^2 + (y_{p1} - y_{p2})^2}$$
 
 Ao obtermos as distâncias projetadas nos eixos X e Y, pela subtração dos atributos, temos dois lados de um triângulo retângulo.
 Assim, se tomarmos a projeção em X como "lado a" e a projeção em Y como "lado b", o que queremos descobrir é o "lado c", formado pela diagonal que liga os pontos.
